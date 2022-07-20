@@ -1,19 +1,29 @@
-// TODO nav-link 'active?'
+import { Link, NavLink } from 'react-router-dom'
 
 function Header({ numCartItems }) {
   return (
     <header className='page-main-header'>
-      <a href='/' className='logo'>
+      <Link to='/' className='logo'>
         CourseCart
-      </a>
+      </Link>
 
       <div className='right'>
-        <a href='./home' className='nav-link nav-link--home active'>
+        <NavLink
+          to='/'
+          className={({ isActive }) =>
+            `nav-link nav-link--home ${isActive ? 'active' : ''}`
+          }
+        >
           home
-        </a>
-        <a href='./products' className='nav-link nav-link--products'>
+        </NavLink>
+        <NavLink
+          to='/products'
+          className={({ isActive }) =>
+            `nav-link nav-link--products ${isActive ? 'active' : ''}`
+          }
+        >
           products
-        </a>
+        </NavLink>
 
         <button className='cart'>
           <svg
