@@ -18,13 +18,13 @@ const products = {
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
   },
   javascript: {
-    id: 'js',
+    id: 'javascript',
     name: 'JavaScript',
     cost: 40,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
   },
   typescript: {
-    id: 'ts',
+    id: 'typescript',
     name: 'TypeScript',
     cost: 10,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
@@ -36,13 +36,13 @@ const products = {
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   },
   python: {
-    id: 'py',
+    id: 'python',
     name: 'Python',
     cost: 50,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
   django: {
-    id: 'dj',
+    id: 'django',
     name: 'Django',
     cost: 60,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
@@ -67,13 +67,13 @@ const products = {
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg',
   },
   mongodb: {
-    id: 'mongo',
+    id: 'mongodb',
     name: 'MongoDB',
     cost: 40,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
   },
   postgres: {
-    id: 'pg',
+    id: 'postgres',
     name: 'PostgreSQL',
     cost: 100,
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',

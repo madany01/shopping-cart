@@ -1,35 +1,31 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import useToggledState from '../hooks/useToggledState'
+
 import Header from './Header'
 import Home from './Home'
 import Cart from './Cart'
 import Products from './Products'
 import Footer from './Footer'
 import NotFound from './NotFound'
-
-const cart = {
-  python: 1,
-  css: 4,
-  django: 3,
-  fastapi: 2,
-  mongodb: 2,
-}
+import { CartProvider } from './CartContext'
 
 function App() {
-  const numCartItems = Object.entries(cart).reduce((acc, [, cnt]) => acc + cnt, 0)
-  const cartVisibility = true
+  const [cartVisibility, toggleCartVisibility] = useToggledState(false)
 
   return (
     <BrowserRouter>
-      <Header numCartItems={numCartItems} />
-      <main className='page-main-content'>
-        <Cart visible={cartVisibility} cart={cart} />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products cart={cart} />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </main>
+      <CartProvider>
+        <Header onCartClick={toggleCartVisibility} />
+        <main className='page-main-content'>
+          <Cart onClose={toggleCartVisibility} visible={cartVisibility} />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </main>
+      </CartProvider>
       <Footer />
     </BrowserRouter>
   )

@@ -1,7 +1,10 @@
 import products from '../products'
+import { useCart } from './CartContext'
 import Product from './Product'
 
-function Products({ cart }) {
+function Products() {
+  const cart = useCart()
+
   return (
     <ul className='products'>
       {Object.values(products).map(product => (

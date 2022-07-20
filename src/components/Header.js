@@ -1,6 +1,11 @@
 import { Link, NavLink } from 'react-router-dom'
+import { useCart } from './CartContext'
 
-function Header({ numCartItems }) {
+function Header({ onCartClick }) {
+  const cart = useCart()
+
+  const numCartItems = Object.entries(cart).reduce((acc, [, cnt]) => acc + cnt, 0)
+
   return (
     <header className='page-main-header'>
       <Link to='/' className='logo'>
@@ -25,7 +30,7 @@ function Header({ numCartItems }) {
           products
         </NavLink>
 
-        <button className='cart'>
+        <button onClick={onCartClick} className='cart'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='currentColor'
