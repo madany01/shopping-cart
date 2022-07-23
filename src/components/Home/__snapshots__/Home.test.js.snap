@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home matches the snapshot 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <div
+      class="website-info"
+    >
+      <h1
+        class="large"
+      >
+        WebDev Courses
+      </h1>
+      <p
+        class="md"
+      >
+        Learn Web development
+      </p>
+      <a
+        class="products-btn"
+        href="/products"
+      >
+        Show Courses
+      </a>
+    </div>
+    <div
+      class="img-wrap"
+    >
+      <img
+        alt="programmer typing in front of three screens"
+        src="home-img.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;

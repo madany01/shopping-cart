@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import products from '../products'
-import CartProduct from './CartProduct'
-import { useCart } from './CartContext'
+import products from '../../products'
+import CartProduct from '../CartProduct'
+import { useCart } from '../CartContext'
 
 function Cart({ visible = false, onClose }) {
   const cart = useCart()
@@ -12,17 +12,18 @@ function Cart({ visible = false, onClose }) {
   }, [visible])
 
   const totalCost = Object.entries(cart).reduce(
-    (acc, [productId, cnt]) => acc + cnt * products[productId].cost,
+    (acc, [productId, quantity]) => acc + quantity * products[productId].cost,
     0
   )
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <div
+      data-testid='cartContainer'
       className={`cart-modal ${visible ? 'visible' : ''}`}
       role='button'
       aria-hidden={!visible}
       tabIndex={0}
-      onKeyDown={e => e.key === ' ' && onClose()}
       onClick={e => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -30,9 +31,9 @@ function Cart({ visible = false, onClose }) {
       <div className='content-wrap'>
         <h2 className='title'>your cart:</h2>
         <ul className='cart-products'>
-          {Object.entries(cart).map(([productId, cnt]) => (
+          {Object.entries(cart).map(([productId, quantity]) => (
             <li key={productId}>
-              <CartProduct productId={productId} cnt={cnt} />
+              <CartProduct productId={productId} quantity={quantity} />
             </li>
           ))}
         </ul>
@@ -40,7 +41,10 @@ function Cart({ visible = false, onClose }) {
         <hr />
 
         <p className='total-cost-ctr'>
-          total cost = <span className='total-cost'>{totalCost}$</span>
+          total cost ={' '}
+          <span className='total-cost' data-testid='totalCost'>
+            {totalCost}$
+          </span>
         </p>
 
         <div className='btns'>

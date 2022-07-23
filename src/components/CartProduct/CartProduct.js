@@ -1,9 +1,9 @@
-import { CART_ACTION, useCartDispatch } from './CartContext'
+import products from '../../products'
+import { CART_ACTION, useCartDispatch } from '../CartContext'
 
-function Product({ product, quantity }) {
+function CartProduct({ productId, quantity }) {
+  const product = products[productId]
   const cartDispatch = useCartDispatch()
-
-  const productId = product.id
 
   const increase = () => {
     cartDispatch({ type: CART_ACTION.INCREMENT, id: productId })
@@ -19,22 +19,16 @@ function Product({ product, quantity }) {
     cartDispatch({ type: CART_ACTION.SET_QUANTITY, id: productId, quantity: newQuantity })
   }
 
-  const addToCart = () => {
-    cartDispatch({ type: CART_ACTION.ADD_TO_CART, id: productId })
-  }
-
   return (
-    <div className='product'>
-      <div className='img-wrap'>
+    <div className='cart-product'>
+      <div className='left'>
         <img src={product.img} alt={product.name} />
+        <p className='cost-ctr'>
+          <span className='cost'>{product.cost}</span>$
+        </p>
       </div>
 
-      <div className='name-cost'>
-        <div className='name'>{product.name}</div>
-        <div className='cost'>{product.cost}$</div>
-      </div>
-
-      {(quantity > 0 && (
+      <div className='right'>
         <div className='quantity-controls'>
           <button className='minus' onClick={decrease}>
             ➖
@@ -44,13 +38,16 @@ function Product({ product, quantity }) {
             ➕
           </button>
         </div>
-      )) || (
-        <button className='add-to-cart' onClick={addToCart}>
-          add to cart
-        </button>
-      )}
+
+        <p className='total-ctr'>
+          <span>total = </span>
+          <span className='total' data-testid='totalCost'>
+            {product.cost * quantity}$
+          </span>
+        </p>
+      </div>
     </div>
   )
 }
 
-export default Product
+export default CartProduct

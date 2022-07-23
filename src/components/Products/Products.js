@@ -1,6 +1,6 @@
-import products from '../products'
-import { useCart } from './CartContext'
-import Product from './Product'
+import products from '../../products'
+import { useCart } from '../CartContext'
+import Product from '../Product'
 
 function Products() {
   const cart = useCart()
