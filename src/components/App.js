@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 
 import useToggledState from '../hooks/useToggledState'
 
@@ -14,7 +14,7 @@ function App() {
   const [cartVisibility, toggleCartVisibility] = useToggledState(false)
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <CartProvider>
         <Header onCartClick={toggleCartVisibility} />
         <main className='page-main-content'>
@@ -27,7 +27,7 @@ function App() {
         </main>
       </CartProvider>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
