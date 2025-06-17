@@ -1,6 +1,20 @@
 # Shopping Cart
 
-## [👉 Live Preview](https://madany01.github.io/shopping-cart/)  
+Mock shopping cart built with React.
 
-- Fake store built using React, React-Router and Sass
-- Tested with React Testing library
+[Live Preview](https://madany01.github.io/shopping-cart/)
+
+## Features
+
+- Browse products on a product listing page
+- Add/remove items from cart
+- View cart contents
+- Responsive design
+
+## Technologies
+
+- React
+- React Router
+- React Testing library
+- Context API (+reducer)
+- Sass
